@@ -1,0 +1,43 @@
+#%RAML 1.0
+title: test
+baseUri: http://test.com
+
+types:
+  String: string
+  Number: number
+  Integer: integer
+  Boolean: boolean
+  Date: date
+
+  Object:
+    properties:
+      foo: string
+      optional?: string
+
+  Array:
+    properties:
+      any: array
+      ofStrings: string[]
+      ofObjects: object[]
+      ofArrays: array[]
+      ofCustom: Scalar[]
+
+  String:
+    properties:
+      regexp:
+        type: string
+        pattern: ^foo$
+      minLength:
+        type: string
+        minLength: 2
+      maxLength:
+        type: string
+        maxLength: 3
+      enum:
+        type: string
+        enum: [foo, bar, baz]
+
+  Inherited:
+    type: Scalar
+    properties:
+      array: string[]

@@ -1,0 +1,26 @@
+#%RAML 1.0
+title: string
+baseUri: http://test.com
+
+types:
+  String: string
+  Regexp:
+    type: string
+    pattern: ^foo$
+  MinLength:
+    type: string
+    minLength: 2
+  MaxLength:
+    type: string
+    maxLength: 3
+  Enum:
+    type: string
+    enum: [foo, bar, baz]
+  Combination:
+    type: string
+    minLength: 2
+    maxLength: 5
+    pattern: __
+  Ineritance:
+    type: MinLength
+    maxLength: 5
